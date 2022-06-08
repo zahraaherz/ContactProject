@@ -30,9 +30,6 @@ class ViewController: UIViewController  {
 
     }
 
-    // MARK: - Button Action
-
-    
     
     // MARK: - Other Methods
     

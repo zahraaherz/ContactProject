@@ -123,12 +123,8 @@ class AddContact: UIViewController {
     // validate first name and last name
     func isValid(testStr:String) -> Bool {
         
-        var myMutableString = NSMutableAttributedString(string: testStr)
-
         guard testStr.count > 2, testStr.count < 18 else {
-            
-            myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSRange(location: 5,length: 5))
-            
+                        
             return false
             
         }

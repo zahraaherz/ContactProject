@@ -1,0 +1,40 @@
+//
+//  AddContact.swift
+//  ContactProject
+//
+//  Created by Zahraa Herz on 07/06/2022.
+//
+
+import UIKit
+import CoreData
+
+class AddContact: UIViewController {
+
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var email: UITextField!
+
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+
+    @IBAction func AddContact(_ sender: Any) {
+
+        // Create a contact object
+        let newContact = Contacts(context: context )
+        newContact.firstName = firstName.text
+        newContact.lastName = lastName.text
+        newContact.email = email.text
+        newContact.mobileNumber = 4357898
+
+        // Save the data
+        do {
+            try self.context.save()
+        } catch {
+    
+        }
+    }
+
+
+}
+

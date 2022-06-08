@@ -1,0 +1,16 @@
+PODS:
+  - IPImage (1.0.2)
+
+DEPENDENCIES:
+  - IPImage
+
+SPEC REPOS:
+  trunk:
+    - IPImage
+
+SPEC CHECKSUMS:
+  IPImage: 11ea6a9481706a6ad5e724a7c07ccd57739f8103
+
+PODFILE CHECKSUM: 5b9b6a4741b8da3ceabbbd81f540dd3a1473297c
+
+COCOAPODS: 1.11.3

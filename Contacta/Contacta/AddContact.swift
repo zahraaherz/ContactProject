@@ -21,16 +21,15 @@ class AddContact: UIViewController {
     
     @IBOutlet var email: UITextField!
     
-    @IBOutlet var firstNameValidation: UILabel!
+    @IBOutlet var validateFirstName: UILabel!
     
-    @IBOutlet var lastNameValidation: UILabel!
+    @IBOutlet var validateLastName: UILabel!
     
-    @IBOutlet var emailValidation: UILabel!
+    @IBOutlet var validateEmail: UILabel!
     
-    @IBOutlet var phoneValidation: UILabel!
+    @IBOutlet var validatePhone: UILabel!
     
     @IBOutlet var addButton: UIButton!
-    
     
     var isFirstNameValid = false
     
@@ -59,26 +58,25 @@ class AddContact: UIViewController {
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.green]
             
-            firstNameValidation.attributedText = NSAttributedString(string: "Valid", attributes: attributes)
+            validateFirstName.attributedText = NSAttributedString(string: "Valid", attributes: attributes)
             
             isFirstNameValid = true
-                    
+                                
         } else {
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
             
-            firstNameValidation.attributedText = NSAttributedString(string: "Invalid", attributes: attributes)
+            validateFirstName.attributedText = NSAttributedString(string: "Invalid", attributes: attributes)
             
             isFirstNameValid = false
         }
         
         // Image Chenged
-        ChangeImage()
+        changeImage()
         
     }
     
     @IBAction func lastNameChanged(_ sender: Any) {
-        
         
         // Validation
         let lastNameString = lastName.text ?? ""
@@ -87,21 +85,21 @@ class AddContact: UIViewController {
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.green]
             
-            lastNameValidation.attributedText = NSAttributedString(string: "Valid", attributes: attributes)
+            validateLastName.attributedText = NSAttributedString(string: "Valid", attributes: attributes)
             
             isLastNameValid = true
-                    
+            
         } else {
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
             
-            lastNameValidation.attributedText = NSAttributedString(string: "Invalid", attributes: attributes)
+            validateLastName.attributedText = NSAttributedString(string: "Invalid", attributes: attributes)
             
             isLastNameValid = false
         }
         
         // Image Chenged
-        ChangeImage()
+        changeImage()
 
     }
     
@@ -148,7 +146,7 @@ class AddContact: UIViewController {
         } else {
             
             // Create new Alert
-            let dialogMessage = UIAlertController(title: "Error", message: "Make sure that every faield is valid", preferredStyle: .alert)
+            let dialogMessage = UIAlertController(title: "Error", message: "Make sure that every field is valid and not empty", preferredStyle: .alert)
             
             // Create OK button with action handler
             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
@@ -173,7 +171,7 @@ class AddContact: UIViewController {
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
 
-            phoneValidation.attributedText = NSAttributedString(string: "Phone number should contain only digit", attributes: attributes)
+            validatePhone.attributedText = NSAttributedString(string: "Phone number should contain only digit", attributes: attributes)
             
             isPhoneValid = false
             
@@ -181,7 +179,7 @@ class AddContact: UIViewController {
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
 
-            phoneValidation.attributedText = NSAttributedString(string: "Phone number sould be 8 digits", attributes: attributes)
+            validatePhone.attributedText = NSAttributedString(string: "Phone number sould be 8 digits", attributes: attributes)
             
             isPhoneValid = false
             
@@ -189,7 +187,7 @@ class AddContact: UIViewController {
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.green]
 
-            phoneValidation.attributedText = NSAttributedString(string: "Valid number ", attributes: attributes)
+            validatePhone.attributedText = NSAttributedString(string: "Valid number ", attributes: attributes)
             
             isPhoneValid = true
             
@@ -216,14 +214,14 @@ class AddContact: UIViewController {
     func validateEmail(email : String){
         
         let regularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
+                
         let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
         
         if predicate.evaluate(with: email){
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.green]
 
-            emailValidation.attributedText = NSAttributedString(string: "Valid Email", attributes: attributes)
+            validateEmail.attributedText = NSAttributedString(string: "Valid Email", attributes: attributes)
             
             isEmailValid = true
             
@@ -231,7 +229,7 @@ class AddContact: UIViewController {
             
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
 
-            emailValidation.attributedText = NSAttributedString(string: "Invalid Email", attributes: attributes)
+            validateEmail.attributedText = NSAttributedString(string: "Invalid Email", attributes: attributes)
             
             isEmailValid = false
         }
@@ -239,7 +237,7 @@ class AddContact: UIViewController {
     }
 
     
-    func ChangeImage(){
+    func changeImage(){
                 
         
         if lastName.text!.isEmpty && firstName.text!.isEmpty {

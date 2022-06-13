@@ -260,6 +260,7 @@ class AddContact: UIViewController {
             if !firstName.text!.isEmpty {
                 
                 firstNameStr = String(firstName.text!.first!)
+                
             }else {
                 
                 firstNameStr = ""

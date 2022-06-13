@@ -15,6 +15,7 @@
 		5E78635B2851D21000A4D199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E78635A2851D21000A4D199 /* Assets.xcassets */; };
 		5E78635E2851D21000A4D199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E78635C2851D21000A4D199 /* LaunchScreen.storyboard */; };
 		5E7863662851DA6B00A4D199 /* AddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7863652851DA6B00A4D199 /* AddContact.swift */; };
+		5EEB3C2D2855CAA800D04CE0 /* ContactsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB3C2C2855CAA800D04CE0 /* ContactsDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5E78635D2851D21000A4D199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E78635F2851D21000A4D199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E7863652851DA6B00A4D199 /* AddContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContact.swift; sourceTree = "<group>"; };
+		5EEB3C2C2855CAA800D04CE0 /* ContactsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				5E7863502851D20C00A4D199 /* SceneDelegate.swift */,
 				5E7863522851D20C00A4D199 /* ViewController.swift */,
 				5E7863652851DA6B00A4D199 /* AddContact.swift */,
+				5EEB3C2C2855CAA800D04CE0 /* ContactsDetailsViewController.swift */,
 				5E7863542851D20C00A4D199 /* Main.storyboard */,
 				5E78635A2851D21000A4D199 /* Assets.xcassets */,
 				5E78635C2851D21000A4D199 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			files = (
 				5E7863532851D20C00A4D199 /* ViewController.swift in Sources */,
 				5E78634F2851D20C00A4D199 /* AppDelegate.swift in Sources */,
+				5EEB3C2D2855CAA800D04CE0 /* ContactsDetailsViewController.swift in Sources */,
 				5E7863662851DA6B00A4D199 /* AddContact.swift in Sources */,
 				5E7863592851D20C00A4D199 /* Contacta.xcdatamodeld in Sources */,
 				5E7863512851D20C00A4D199 /* SceneDelegate.swift in Sources */,

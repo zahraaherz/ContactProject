@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     var contacts: [Contacts]?
     
+    var selectedData: Contacts?
+    
     var filteredData: [Contacts]!
     
     var isFiltered = false
@@ -131,8 +133,34 @@ extension ViewController: UITableViewDataSource , UITableViewDelegate {
         let name = isFiltered ? filteredData![indexPath.row] : contacts![indexPath.row]
                 
         cell.textLabel?.text = name.firstName! + " " + name.lastName!
-        
+                
         return cell
     }
     
+}
+
+// MARK: - Protocol
+
+extension ViewController:  EditContacts {
+    
+    func update(contact: Contacts?) {
+        
+        if let row = self.contacts?.firstIndex(where: { $0.phoneNumber == contact?.phoneNumber}){
+            
+            contacts![row] = contact!
+            tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if segue.identifier == "contactDetails" {
+                let secondViewController = segue.destination as! ContactsDetailsViewController
+                if let cell = sender as? UITableViewCell,
+                   let indexPath = self.tableView.indexPath(for: cell) {
+                    secondViewController.delegate = self
+                    secondViewController.contact = contacts![indexPath.row]
+                }
+            }
+    }
 }

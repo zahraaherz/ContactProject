@@ -51,7 +51,6 @@ class AddContact: UIViewController {
     @IBAction func firstNameChanged(_ sender: Any) {
         
         // Validation
-
         let firstNameString = firstName.text ?? ""
         
         if validateString(string: firstNameString){
@@ -97,10 +96,8 @@ class AddContact: UIViewController {
             
             isLastNameValid = false
         }
-        
         // Image Chenged
         changeImage()
-
     }
     
     
@@ -109,7 +106,6 @@ class AddContact: UIViewController {
         let phone = phoneNumber.text ?? ""
         
         validatePhoneNumber(phone)
-    
     }
     
     
@@ -119,7 +115,6 @@ class AddContact: UIViewController {
         
         validateEmail(email: email)
     }
-    
     
     @IBAction func addAction(_ sender: Any) {
         
@@ -194,8 +189,7 @@ class AddContact: UIViewController {
         }
     }
     
-    
-    func validateString(string : String ) -> Bool {
+    func validateString(string: String) -> Bool {
         
         let predicateTest = NSPredicate(format: "SELF MATCHES %@", "[a-zA-Z]{3,22}")
                 
@@ -210,8 +204,7 @@ class AddContact: UIViewController {
         }
     }
     
-    
-    func validateEmail(email : String){
+    func validateEmail(email: String) {
         
         let regularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
                 
@@ -239,7 +232,6 @@ class AddContact: UIViewController {
     
     func changeImage(){
                 
-        
         if lastName.text!.isEmpty && firstName.text!.isEmpty {
             
             imageView.image = UIImage(named: "Profile")
@@ -283,6 +275,5 @@ class AddContact: UIViewController {
             UIGraphicsEndImageContext()
             
         }
-
     }
 }

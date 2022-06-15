@@ -62,6 +62,7 @@ class ContactsDetailsViewController: UIViewController {
 
     var isPhoneValid = true
 
+    //Mark: View Life cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -163,7 +164,6 @@ class ContactsDetailsViewController: UIViewController {
         
         // Image Chenged
         changeImage()
-        
     }
     
     @IBAction func changeEmail(_ sender: Any) {
@@ -193,29 +193,32 @@ class ContactsDetailsViewController: UIViewController {
         let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to save this?", preferredStyle: .alert)
 
         // Create OK button with action handler
-        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+        let ok = UIAlertAction(title: "OK",
+                               style: .default,
+                               handler: { (action) -> Void in
                 
-            // Change the contact
-            self.contact?.email = self.email.text
-            self.contact?.firstName = self.firstName.text
-            self.contact?.lastName = self.lastName.text
-            self.contact?.phoneNumber = self.phone.text
-                
-            // Save the data
-            do {
-                try self.context.save()
-            } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
+                                    // Change the contact
+                                    self.contact?.email = self.email.text
+                                    self.contact?.firstName = self.firstName.text
+                                    self.contact?.lastName = self.lastName.text
+                                    self.contact?.phoneNumber = self.phone.text
+                                        
+                                    // Save the data
+                                    do {
+                                        try self.context.save()
+                                    } catch {
+                                            let nserror = error as NSError
+                                            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                                    }
 
-            // Go back to view controller
-            self.navigationController?.popViewController(animated: true)
+                                    // Go back to view controller
+                                    self.navigationController?.popViewController(animated: true)
 
-        })
+                                })
 
         // Create Cancel button with action handlder
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+            
             print("Cancel button tapped")
         }
 
@@ -239,7 +242,6 @@ class ContactsDetailsViewController: UIViewController {
             dialogMessage.addAction(ok)
 
             self.present(dialogMessage, animated: true, completion: nil)
-            
         }
     }
 
@@ -263,12 +265,10 @@ class ContactsDetailsViewController: UIViewController {
         dialogMessage.addAction(cancel)
 
         self.present(dialogMessage, animated: true, completion: nil)
-
     }
 
+// MARK: - Other Methods
 
-//    // MARK: - Other Methods
-//
     func disableText(){
 
         email.isEnabled = false
@@ -364,10 +364,9 @@ class ContactsDetailsViewController: UIViewController {
             UIGraphicsEndImageContext()
 
         }
-
     }
     
-    func validateEmail(email : String){
+    func validateEmail(email: String) {
         
         let regularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
                 
@@ -389,7 +388,6 @@ class ContactsDetailsViewController: UIViewController {
             
             isEmailValid = false
         }
-        
     }
 
     func validatePhoneNumber(_ value: String){

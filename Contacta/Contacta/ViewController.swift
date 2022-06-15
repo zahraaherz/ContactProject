@@ -40,7 +40,6 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
 
         fetchContacts()
-        
     }
     
     // MARK: - Other Methods
@@ -49,20 +48,14 @@ class ViewController: UIViewController {
         
     do {
         self.contacts = try context.fetch(Contacts.fetchRequest())
-
         DispatchQueue.main.async {
-                
             self.tableView.reloadData()
-            
             }
-        
         } catch {
-            
             let nserror = error as NSError
               fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
-
 }
 
 // MARK: - Search bar data source
@@ -104,7 +97,6 @@ extension ViewController: UISearchBarDelegate {
                 return (((dataString.firstName! + " " + dataString.lastName!).range(of: searchText,options: .caseInsensitive) != nil) )
             })
         }
-
         tableView.reloadData()
     }
 }
@@ -112,7 +104,6 @@ extension ViewController: UISearchBarDelegate {
 // MARK: - Table view data source
 
 extension ViewController: UITableViewDataSource , UITableViewDelegate {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -146,7 +137,6 @@ extension ViewController:  EditContacts {
     func update(contact: Contacts?) {
         
         if let row = self.contacts?.firstIndex(where: { $0.phoneNumber == contact?.phoneNumber}){
-            
             contacts![row] = contact!
             tableView.reloadData()
         }
@@ -155,12 +145,13 @@ extension ViewController:  EditContacts {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         
         if segue.identifier == "contactDetails" {
+            
                 let secondViewController = segue.destination as! ContactsDetailsViewController
                 if let cell = sender as? UITableViewCell,
                    let indexPath = self.tableView.indexPath(for: cell) {
                     secondViewController.delegate = self
                     secondViewController.contact = contacts![indexPath.row]
                 }
-            }
+        }
     }
 }
